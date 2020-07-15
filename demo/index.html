@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo kupol</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="demo.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="shortcut icon" href="../img/danya/icon/main.ico" type="image/x-icon">
+</head>
+<body onload="onload_func()" onunload="set_cookie_main()">
+    <div id="not_valid_width">
+        <h2>ERROR Ваш экран слишком маленький</h2>
+    </div>
+    <div id="all_fucking_code">
+        <div id="setings_main" style="display:none">
+            <h1 id="setings" style="position: absolute;top:20px;left: 700px;height: 50px;">Settings</h1>
+            <div id="buttons">
+                <div id="volume" style="position: absolute;top:80px;left:75px;background: rgba(0,0,0,0.1);width: 100px;height: 25px;text-align: center;" class="hvr-underline-from-left">Звук</div>
+                <div id="grafics" style="position: absolute;top:80px;left:200px;background: rgba(0,0,0,0.1);width: 100px;height: 25px;text-align: center;" class="hvr-underline-from-left">Графика</div>
+            </div>
+                <div id="esc_set" style="position: absolute;width: 50px;height: 70px;top: 30px;left: 1450px;z-index: 9;">
+                <img src="krest.png" alt="" style="width: 47px;height: 47px;z-index: 0;">
+                <div id="esc_txt" style="text-align: center;width: 46px;">ESC</div>
+            </div>
+            <div id="setings_list">
+                <div id="volume_list" style="display:none">
+                    <div id="on_off_music"style="display: flex;align-items: center;justify-content: space-around;width: 400px;margin-top: 165px;">Должна ли быть музыка?
+                        <label class="switch">
+                            <input id="on_of_music_data" type="checkbox" checked oninput="adapt_volume('onoff')">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div id="volume_of_background" style="display: none;align-items: center;justify-content: space-around;width: 400px;margin-top: 45px;">Громкость музыки
+                        <input type="range" min="1" max="10" id="volume_of_background_input"  oninput="adapt_volume('background')" value="10" step="1">
+                    </div>
+                </div>
+                <div id="grafics_list" style="display:none">
+                    <div id="grafics_qal" style="display: flex;align-items: center;justify-content: space-around;width: 400px;margin-top: 165px;">Качество графики
+                        <input type="range" name="" id="grafic_quality" min="1" max="2" step="1" value="2" oninput="adapt_grafics('quality')">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <script>
+            grafics.onclick=function(){
+                volume_list.style.display="none"
+                grafics_list.style.display="block"/*
+                if (on_of_music_data.checked==true) {
+                    volume_of_background.style.display="flex"
+                }else{
+                    volume_of_background.style.display="none"
+                }*/
+            }
+            volume.onclick=function(){
+                volume_list.style.display="block"
+                grafics_list.style.display="none"
+                if (on_of_music_data.checked==true) {
+                    volume_of_background.style.display="flex"
+                }else{
+                    volume_of_background.style.display="none"
+                }
+            }
+            esc_set.onclick=function(){
+                home_page.style.display="block"
+                setings_main.style.display="none"
+                volume_list.display="none"
+            }
+        </script>
+        <div id="music_div">
+            <div id="talk_back"></div>
+            <div id="talk_voise"></div>
+        </div>
+        <div id="home_page">
+            <div id="setings_div"><img src="setings.png" alt="" id="seting_img"></div>
+            <div id="position" style="position: absolute;top: 0px;left: 0px;width: 100%;text-align: center;">12x43</div>
+            <!--<button id="bild" onclick="alert(world_map[8][0]);">alert world</button>-->
+            <div id="table_div_main" style="width: 100%;height: 100%;position: absolute;display: flex; justify-content: center;align-items: center;z-index: -999999;">
+    <table id="main_table" border="0px">
+    <tr id="x1" style="width: 54px;height: 54px;">
+        <td id="x1_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x1_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x1_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x1_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x1_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x1_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x1_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="x2" style="width: 54px;height: 54px;">
+        <td id="x2_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x2_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x2_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x2_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x2_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x2_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x2_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="x3" style="width: 54px;height: 54px;">
+        <td id="x3_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x3_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x3_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x3_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x3_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x3_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x3_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="x4" style="width: 54px;height: 54px;">
+        <td id="x4_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x4_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x4_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x4_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x4_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x4_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x4_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="x5" style="width: 54px;height: 54px;">
+        <td id="x5_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x5_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x5_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x5_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x5_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x5_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x5_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="x6" style="width: 54px;height: 54px;">
+        <td id="x6_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x6_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x6_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x6_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x6_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x6_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x6_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="x7" style="width: 54px;height: 54px;">
+        <td id="x7_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x7_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x7_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x7_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x7_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x7_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="x7_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    </table>
+            </div>
+            <div id="player_table_div_main" style="width: 100%;height: 100%;position: absolute;display: flex; justify-content: center;align-items: center;z-index:-999999;">
+    <table id="main_table" border="0px">
+    <tr id="p_x1" style="width: 54px;height: 54px;">
+        <td id="p_x1_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x1_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x1_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x1_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x1_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x1_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x1_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="p_x2" style="width: 54px;height: 54px;">
+        <td id="p_x2_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x2_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x2_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x2_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x2_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x2_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x2_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="p_x3" style="width: 54px;height: 54px;">
+        <td id="p_x3_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x3_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x3_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x3_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x3_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x3_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x3_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="p_x4" style="width: 54px;height: 54px;">
+        <td id="p_x4_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x4_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x4_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x4_y4"><img src="../img/prototype/player/player.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x4_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x4_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x4_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="p_x5" style="width: 54px;height: 54px;">
+        <td id="p_x5_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x5_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x5_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x5_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x5_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x5_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x5_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="p_x6" style="width: 54px;height: 54px;">
+        <td id="p_x6_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x6_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x6_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x6_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x6_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x6_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x6_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="p_x7" style="width: 54px;height: 54px;">
+        <td id="p_x7_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x7_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x7_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x7_y4"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x7_y5"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x7_y6"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="p_x7_y7"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    </table>
+            </div>
+            <div id="controls_table__div_main" style="width: 100%;height: 100%;position: absolute;/*display: flex; justify-content: center;align-items: center;*/z-index: -999999;">
+    <table id="main_table" border="0px">
+    <tr id="c_x1" style="width: 54px;height: 54px;">
+        <td id="c_x1_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="c_x1_y2"><button onclick="go_world('n')" style="width: 54px;height: 54px;">&#8593;</button></td>
+        <td id="c_x1_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+    </tr>
+    <tr id="c_x2" style="width: 54px;height: 54px;">
+        <td id="c_x2_y1"><button onclick="go_world('w')" style="width: 54px;height: 54px;">&#8592;</button></td></td>
+        <td id="c_x2_y2"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="c_x2_y3"><button onclick="go_world('e')" style="width: 54px;height: 54px;">&#8594;</button></td></td>
+    </tr>
+    <tr id="c_x3" style="width: 54px;height: 54px;">
+        <td id="c_x3_y1"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></td>
+        <td id="c_x3_y2"><button onclick="go_world('s')" style="width: 54px;height: 54px;">&#8595;</button></td></td>
+        <td id="c_x3_y3"><img src="../img/prototype/null/null.png"   style="width: 54px;height: 54px;"></button></td>
+    </tr>
+
+    </table>
+            </div>
+            <div id="zadaniya">
+                <div id="zadanie_border_1" style="display: none;" class="zad_border">
+                    <div id="name_zadanie_1" class="name_zadanie">AK-47</div>
+                    <div id="discripton_zadanie_1" class="discription_zadanie">Bring AK-47 to seller</div>
+                    <div id="revard_zadanie_1" class="revard_zadanie">1000UAH</div>
+                    <div id="progres_zadanie_1" class="progress_zadanie">0/1</div>
+                </div>
+                <div id="zadanie_border_2" style="display: none;" class="zad_border">
+                    <div id="name_zadanie_2" class="name_zadanie">AK-47</div>
+                    <div id="discripton_zadanie_2" class="discription_zadanie">Bring AK-47 to seller</div>
+                    <div id="revard_zadanie_2" class="revard_zadanie">1000UAH</div>
+                    <div id="progres_zadanie_2" class="progress_zadanie">0/1</div>
+                </div>
+                <div id="zadanie_border_3" style="display: none;" class="zad_border">
+                    <div id="name_zadanie_3" class="name_zadanie">AK-47</div>
+                    <div id="discripton_zadanie_3" class="discription_zadanie">Bring AK-47 to seller</div>
+                    <div id="revard_zadanie_3" class="revard_zadanie">1000UAH</div>
+                    <div id="progres_zadanie_3" class="progress_zadanie">0/1</div>
+                </div>
+            </div>
+            <button id="take_lut_button" class="home_use_button" onclick="take_lut()">Подобрать</button>
+            <button id="enter_button" class="home_use_button" onclick="enter_home()">Войти</button>
+            <button id="talk_button" class="home_use_button" style="left:720px;" onclick="start_dialoge('seller')">Говорить</button>
+            <button id="open_inv"><img src="inv.png" alt="" style="width: 100%;height: 100%;"></button>
+            <script>
+                open_inv.onclick=function(){
+                    home_page.style.display="none";
+                    inventory.style.display="block";
+                    adapt_main()
+                }
+                setings_div.onclick=function(){
+                    home_page.style.display="none"
+                    setings_main.style.display="block"
+                }
+            </script>
+        </div>
+        <div id="inventory">
+        <div id="inventory_main">
+            <button id="close_b" style="position: absolute;top:0px;left:0px">&#10060;</button>
+            <script>
+                close_b.onclick=function(){
+                    home_page.style.display="block";
+                    inventory.style.display="none";
+                }
+            </script>
+            <table id="inventory_table" border="1px">
+                <tr>
+                    <td id="inv_1"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_2"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_3"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_4"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_5"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_6"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_7"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                </tr>
+                <tr>
+                    <td id="inv_8"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_9"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_10"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_11"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_12"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_13"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_14"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                </tr>
+                <tr>
+                    <td id="inv_15"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_16"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_17"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_18"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_19"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_20"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_21"><img src="../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                </tr>
+            </table>
+            <div id="buttons">
+                <button id="use_button" class="use_button use_button_deactive" onclick="use_inv_function()">Применить</button>
+                <!--<button id="move_button" class="use_button" style="left:365px;">Переместить</button>-->
+            </div>
+        </div>
+        <div>
+            <div class="w3-light-grey item_helth" style="left:176px;">
+                <div class="w3-green" id="item_helth_1" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:263px;">
+                <div class="w3-green" id="item_helth_2" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:350px;">
+                <div class="w3-green" id="item_helth_3" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:437px;">
+                <div class="w3-green" id="item_helth_4" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:525px;">
+                <div class="w3-green" id="item_helth_5" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:612px;">
+                <div class="w3-green" id="item_helth_6" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:699px;">
+                <div class="w3-green" id="item_helth_7" style="height:100%;width:100%;"></div>
+            </div>
+
+            <div class="w3-light-grey item_helth" style="left:176px;top:232px;">
+                <div class="w3-green" id="item_helth_8" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:263px;top:232px;">
+                <div class="w3-green" id="item_helth_9" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:350px;top:232px;">
+                <div class="w3-green" id="item_helth_10" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:437px;top:232px;">
+                <div class="w3-green" id="item_helth_11" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:525px;top:232px;">
+                <div class="w3-green" id="item_helth_12" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:612px;top:232px;">
+                <div class="w3-green" id="item_helth_13" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:699px;top:232px;">
+                <div class="w3-green" id="item_helth_14" style="height:100%;width:100%;"></div>
+            </div>
+
+            <div class="w3-light-grey item_helth" style="left:176px;top:318px;">
+                <div class="w3-green" id="item_helth_15" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:263px;top:318px;">
+                <div class="w3-green" id="item_helth_16" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:350px;top:318px;">
+                <div class="w3-green" id="item_helth_17" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:437px;top:318px;">
+                <div class="w3-green" id="item_helth_18" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:525px;top:318px;">
+                <div class="w3-green" id="item_helth_19" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:612px;top:318px;">
+                <div class="w3-green" id="item_helth_20" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:699px;top:318px;">
+                <div class="w3-green" id="item_helth_21" style="height:100%;width:100%;"></div>
+            </div>
+        </div>
+        <div id="human_main">
+            <div id="lvl_main">71</div>
+            <div id="n_w_line"></div>
+            <div id="player_name_main">Stalker091</div>
+            <div class="w3-light-grey" id="helgth_main">
+                <div class="w3-green" style="height:100%;width:100%"></div>
+            </div>
+            <div id="hp_number_main">100</div>
+            <img src="../img/prototype/inv_items/rename.png" id="rename_button" /*onclick="alert()"*/>
+            <!---->
+            <div id="headwear" class="closes_strength_main" onclick="unwear('headwear')">
+                <div class="w3-light-grey closes_strength" id="headwear_strength">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="../img/prototype/items/headwear.png" id="headwear_img" class="wear_img">
+            </div>
+            <div id="outerwear" style="top: 250px;" class="closes_strength_main" onclick="unwear('outerwear')">
+                <div class="w3-light-grey closes_strength" id="outerwear_strength">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="../img/prototype/items/jaket.png" id="outerwear_img" class="wear_img">
+            </div>
+            <div id="underwear" style="top: 390px;" class="closes_strength_main" onclick="unwear('underwear')">
+                <div class="w3-light-grey closes_strength" id="underwear_strength">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="../img/prototype/items/trousers.png" id="underwear_img" class="wear_img">
+            </div>
+            <div id="boots" style="top: 530px;" class="closes_strength_main" onclick="unwear('boots')">
+                <div class="w3-light-grey closes_strength" id="boots_strength">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="../img/prototype/items/boots.png" id="boots_img" class="wear_img">
+            </div>
+            <img src="../img/prototype/inv_items/human.jpg" alt="" class="human_img">
+            <div id="weapon" class="weapon_strength_main" onclick="unwear('weapon')">
+                <img src="../img/prototype/items/weapon.png" alt="" class="weapon_img" id="weapon_img">
+                <div class="w3-light-grey closes_strength" style="left: 3px;height: 115px;" id="weapon_strenth">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+            </div>
+            <div id="backpack">
+                <div class="w3-light-grey closes_strength" style="left: 33px;height: 85px;top: 303px;" id="backpack_strenth">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="../img/prototype/items/backpack.png" alt="" style="left: 30px;top: 300px;width: 90px;height: 90px;" class="closes_strength_main">
+            </div>
+            <div id="poket">
+                <div class="w3-light-grey closes_strength" style="left: 33px;height: 85px;top: 463px;display:none" id="poket_strenth">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="../img/prototype/inv_items/poket.png" alt="" style="left: 30px;top: 460px;width: 90px;height: 90px;" class="closes_strength_main">
+            </div>
+            <div id="footer_human">
+                <div id="info_1" class="info_div">
+                    <img src="../img/prototype/inv_items/atk.png" alt="" class="info_img">
+                    <div id="atk_num" class="info_num">0</div>
+                </div>
+                <div id="info_2" class="info_div">
+                    <img src="../img/prototype/inv_items/def.png" alt="" class="info_img">
+                    <div id="def_num" class="info_num">0</div>
+                </div>
+                <div id="info_3" class="info_div">
+                    <img src="../img/prototype/inv_items/holod.png" alt="" class="info_img">
+                    <div id="holod_num" class="info_num">0</div>
+                </div>
+                <div id="info_4" class="info_div">
+                    <img src="../img/prototype/inv_items/water.png" alt="" class="info_img">
+                    <div id="water_num" class="info_num">0</div>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            for (let index = 1; index <= 21; index++) {
+                var pl=document.querySelector("td#inv_"+index);
+                pl.onclick=function () {
+                    table_click(index)
+                }
+                
+            }
+    
+            function table_click(num) {
+                for (let index = 1; index <= 21; index++) {
+                    var pl=document.querySelector("td#inv_"+index);
+                    pl.style.boxShadow="inset 0 0 0px white"
+                    pl.style.backgroundColor="white"
+                }
+                selested_num=num;
+                var it_sel=document.querySelector("td#inv_"+num);
+                it_sel.style.boxShadow="inset 0 0 20px rgb(32, 168, 162)"
+                it_sel.style.backgroundColor="rgb(28, 71, 68)"
+                use_button.classList.remove("use_button_deactive")
+                use_button.classList.add("use_button_active")
+            
+                //box-shadow: inset 0 0 6px;
+                /*if (click_smisl=="use") {
+                    player.inv[num-1]=null
+                    player.str[num-1]=null
+                    adapt_main()
+                    click_smisl=""
+                }*/
+                //alert("Item "+num+" clicked")
+            }
+        </script>
+        </div>
+        <div id="speak_part" style="display: none;">
+            <img src="../img/danya/people/seller/seller_head_anim.jpg" alt="" id="head" class="">
+            <img src="../img/danya/people/seller/seller_speak.jpg" alt="" id="img_part" class="img_talk">
+            <div id="text_part" class="text_part part_txt">
+                <!--<p>* Антибиотик - ATK 0 DEF 0</p>
+                <p>* Нож - ATK 5 DEF 0</p>
+                <p>* ПМ - ATK 7.5 DEF 0</p>
+                <p>* АК-47 - ATK 15 DEF 0</p>-->
+            </div>
+            <div id="control_part" class="control_part part_txt">
+                <!--<p>Купить</p>
+                <p>Продать</p>
+                <p>Говорить</p>
+                <p>Выйти</p>-->
+            </div>
+            <div id="variable_part">
+                <div id="money" class="money"></div>
+                <div id="inv_filling" style="left: 1440px;top: 625px;"class="money"></div>
+            </div>
+            <div id="info_part" class="info_part part_txt"></div>
+        </div>
+    </div>
+    <div id="load_window">
+        <h1>Загрузка</h1>
+        <progress id="load_progress" max=100 min=0 value=0></progress>
+    </div>
+
+</body>
+</html>

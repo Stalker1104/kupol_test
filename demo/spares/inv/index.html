@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script></head>
+
+</head>
+<body>
+
+    <div id="inventory">
+        <div id="inventory_main">
+            <table id="inventory_table" border="1px">
+                <tr>
+                    <td id="inv_1"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_2"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_3"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_4"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_5"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_6"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_7"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                </tr>
+                <tr>
+                    <td id="inv_8"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_9"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_10"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_11"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_12"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_13"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_14"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                </tr>
+                <tr>
+                    <td id="inv_15"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_16"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_17"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_18"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_19"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_20"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                    <td id="inv_21"><img src="../../../img/prototype/null/null.png" alt="" class="inv_td"></td>
+                </tr>
+            </table>
+            <div id="buttons">
+                <button id="use_button" class="use_button">Применить</button>
+                <!--<button id="move_button" class="use_button" style="left:365px;">Переместить</button>-->
+                <script>
+
+                    use_button.onclick=function(){
+
+                        var pl=document.querySelector("td#inv_"+selested_num);
+                        pl.style.boxShadow="inset 0 0 0px white"
+                        pl.style.backgroundColor="white"
+                        console.log(selested_num-1)
+                        console.log(src_of_items[inv[selested_num-1]])
+                        weapon_img.src=src_of_items[inv[selested_num-1]];
+                        inv[selested_num-1]=null
+                        str[selested_num-1]=null
+                        selested_num=null
+                        adapt_main()
+                    }
+                </script>
+            </div>
+        </div>
+        <div>
+            <div class="w3-light-grey item_helth" style="left:176px;">
+                <div class="w3-green" id="item_helth_1" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:263px;">
+                <div class="w3-green" id="item_helth_2" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:350px;">
+                <div class="w3-green" id="item_helth_3" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:437px;">
+                <div class="w3-green" id="item_helth_4" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:525px;">
+                <div class="w3-green" id="item_helth_5" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:612px;">
+                <div class="w3-green" id="item_helth_6" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:699px;">
+                <div class="w3-green" id="item_helth_7" style="height:100%;width:100%;"></div>
+            </div>
+
+            <div class="w3-light-grey item_helth" style="left:176px;top:232px;">
+                <div class="w3-green" id="item_helth_8" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:263px;top:232px;">
+                <div class="w3-green" id="item_helth_9" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:350px;top:232px;">
+                <div class="w3-green" id="item_helth_10" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:437px;top:232px;">
+                <div class="w3-green" id="item_helth_11" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:525px;top:232px;">
+                <div class="w3-green" id="item_helth_12" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:612px;top:232px;">
+                <div class="w3-green" id="item_helth_13" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:699px;top:232px;">
+                <div class="w3-green" id="item_helth_14" style="height:100%;width:100%;"></div>
+            </div>
+
+            <div class="w3-light-grey item_helth" style="left:176px;top:318px;">
+                <div class="w3-green" id="item_helth_15" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:263px;top:318px;">
+                <div class="w3-green" id="item_helth_16" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:350px;top:318px;">
+                <div class="w3-green" id="item_helth_17" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:437px;top:318px;">
+                <div class="w3-green" id="item_helth_18" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:525px;top:318px;">
+                <div class="w3-green" id="item_helth_19" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:612px;top:318px;">
+                <div class="w3-green" id="item_helth_20" style="height:100%;width:100%;"></div>
+            </div>
+            <div class="w3-light-grey item_helth" style="left:699px;top:318px;">
+                <div class="w3-green" id="item_helth_21" style="height:100%;width:100%;"></div>
+            </div>
+        </div>
+        <div id="human_main">
+            <div id="lvl_main">71</div>
+            <div id="n_w_line"></div>
+            <div id="player_name_main">Stalker091</div>
+            <div class="w3-light-grey" id="helgth_main">
+                <div class="w3-green" style="height:100%;width:100%"></div>
+            </div>
+            <div id="hp_number_main">100</div>
+            <img src="rename.png" id="rename_button" /*onclick="alert()"*/>
+            <!---->
+            <div id="headwear" class="closes_strength_main">
+                <div class="w3-light-grey closes_strength" id="headwear_strength">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="headwear.png" id="headwear_img" class="wear_img">
+            </div>
+            <div id="outerwear" style="top: 250px;" class="closes_strength_main">
+                <div class="w3-light-grey closes_strength" id="outerwear_strength">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="jaket.png" id="outerwear_img" class="wear_img">
+            </div>
+            <div id="underwear" style="top: 390px;" class="closes_strength_main">
+                <div class="w3-light-grey closes_strength" id="underwear_strength">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="trousers.png" id="underwear_img" class="wear_img">
+            </div>
+            <div id="boots" style="top: 530px;" class="closes_strength_main">
+                <div class="w3-light-grey closes_strength" id="boots_strength">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="boots.png" id="boots_img" class="wear_img">
+            </div>
+            <img src="human.jpg" alt="" class="human_img">
+            <div id="weapon" class="weapon_strength_main">
+                <img src="weapon.png" alt="" class="weapon_img" id="weapon_img">
+                <div class="w3-light-grey closes_strength" style="left: 3px;height: 115px;" id="weapon_strenth">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+            </div>
+            <div id="backpack">
+                <div class="w3-light-grey closes_strength" style="left: 33px;height: 85px;top: 303px;" id="backpack_strenth">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="backpack.png" alt="" style="left: 30px;top: 300px;width: 90px;height: 90px;" class="closes_strength_main">
+            </div>
+            <div id="poket">
+                <div class="w3-light-grey closes_strength" style="left: 33px;height: 85px;top: 463px;display:none" id="poket_strenth">
+                    <div class="w3-green" style="height:100%;width:100%;"></div>
+                </div>
+                <img src="poket.png" alt="" style="left: 30px;top: 460px;width: 90px;height: 90px;" class="closes_strength_main">
+            </div>
+            <div id="footer_human">
+                <div id="info_1" class="info_div">
+                    <img src="atk.png" alt="" class="info_img">
+                    <div id="atk_num" class="info_num">100</div>
+                </div>
+                <div id="info_2" class="info_div">
+                    <img src="def.png" alt="" class="info_img">
+                    <div id="def_num" class="info_num">100</div>
+                </div>
+                <div id="info_3" class="info_div">
+                    <img src="holod.png" alt="" class="info_img">
+                    <div id="holod_num" class="info_num">100</div>
+                </div>
+                <div id="info_4" class="info_div">
+                    <img src="water.png" alt="" class="info_img">
+                    <div id="water_num" class="info_num">100</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //adapt(inv,0,0,0,0,0,0,0,0)
+        var click_smisl="";
+        var selested_num=null;
+        var inv=[0,2,1,2,4,5,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
+        var str=[34,65,100,73,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
+        var names_of_items=["Нож","ПМ","AK-47","end of weapon","Теплая шапка","Куртка","Штаны","Ботинки"]
+        var src_of_items=["ButcherKnife.png","BadPistol.png","ak_47.png","end of weapon","headwear.png","jaket.png","trousers.png","boots.png"]
+        var head={
+            num:4,
+            strenth:40
+        };
+
+        var outerwear={
+            num:5,
+            strenth:58
+        };
+        var underwear={
+            num:6,
+            strenth:100
+        };
+        var boots={
+            num:7,
+            strenth:60
+        };
+        var person={
+            atk:10,
+            def:94,
+            eat:68,
+            wat:45
+        }
+        function adapt(inventory_arr,strength_arr,headwear,outerwear,underwear,boots,hp,name,lvl,person) {
+            //inv
+            for (let index = 0; index < inventory_arr.length; index++) {
+
+                if (inventory_arr[index]==null) {
+                    document.querySelector(`td#inv_${index+1}`).innerHTML=`<img src="../../../img/prototype/null/null.png" alt="" class="inv_td">`
+                } else {
+                    var src=src_of_items[inventory_arr[index]]
+                    var place=document.querySelector(`td#inv_${index+1}`);
+                    place.innerHTML=`<img src="${src}" alt="" class="inv_td">`
+                    
+                }
+            }
+            //strength
+            for (let index = 0; index < strength_arr.length; index++) {
+                if (strength_arr[index]==null || inventory_arr[index]>names_of_items.indexOf("end of weapon")||inventory_arr[index]==null) {
+                    var place=document.querySelector(`div#item_helth_${index+1}`)
+                    place.parentNode.style.display="none"
+                    continue
+                } else {
+                    var place=document.querySelector(`div#item_helth_${index+1}`)
+                    place.parentNode.style.display="block"
+                    if (strength_arr[index]>100) {
+                        strength_arr[index]=100
+                    }
+                    place.style.width=strength_arr[index]+"%"
+                }
+                
+                
+            }
+            //other
+            {
+            //hp
+            hp_number_main.innerHTML=hp;
+            helgth_main.childNodes[1].style.width=hp+"%"
+            //name
+            player_name_main.innerHTML=name
+            var width = document.querySelector('#player_name_main').offsetWidth
+            width+=105;
+            rename_button.style.left=width+"px"
+            //lvl
+            lvl_main.innerHTML=lvl
+            
+            //headwear
+            headwear_img.src=src_of_items[headwear.num];
+            headwear_strength.childNodes[1].style.height=headwear.strenth+"%"
+            //outerwear
+            outerwear_img.src=src_of_items[outerwear.num];
+            outerwear_strength.childNodes[1].style.height=outerwear.strenth+"%"
+            //underwear
+            underwear_img.src=src_of_items[underwear.num];
+            underwear_strength.childNodes[1].style.height=underwear.strenth+"%"
+            //boots
+            boots_img.src=src_of_items[boots.num];
+            boots_strength.childNodes[1].style.height=boots.strenth+"%"
+            }
+            //person
+            atk_num.innerHTML=person.atk;
+            def_num.innerHTML=person.def;
+            holod_num.innerHTML=person.eat;
+            water_num.innerHTML=person.wat;
+
+        }
+        function adapt_main() {
+            adapt(inv,str,head,outerwear,underwear,boots,100,"Sidorovich",54,person);
+        }
+        adapt_main()
+        for (let index = 1; index <= 21; index++) {
+            var pl=document.querySelector("td#inv_"+index);
+            pl.onclick=function () {
+                table_click(index)
+            }
+            
+        }
+
+        function table_click(num) {
+            for (let index = 1; index <= 21; index++) {
+                var pl=document.querySelector("td#inv_"+index);
+                pl.style.boxShadow="inset 0 0 0px white"
+                pl.style.backgroundColor="white"
+            }
+            selested_num=num;
+            var it_sel=document.querySelector("td#inv_"+num);
+            it_sel.style.boxShadow="inset 0 0 20px rgb(32, 168, 162)"
+            it_sel.style.backgroundColor="rgb(28, 71, 68)"
+            
+        
+            //box-shadow: inset 0 0 6px;
+            if (click_smisl=="use") {
+                inv[num-1]=null
+                str[num-1]=null
+                adapt_main()
+                click_smisl=""
+            }
+            //alert("Item "+num+" clicked")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="music_div" style="width: 100%;height: 100%;background-color: black;"></div>
+    <div id="psevdocheck"style="display:flex;">
+        <h2 id="ws" style="font-family: 'Play', sans-serif;position: absolute;top: 300px;width: 1000px;left: 260px;text-align: center;">Подождите пока ваше устройство проверяется на совместимость...</h2>
+        <progress id="check_ps" style="position: absolute;top: 500px;width: 1000px;left: 260px;" min=0 max=100 value=0></progress>
+        <img src="succsess.png" alt="" id="succsess"style="display:none;width: 250px;position: absolute;left: 650px;top: 150px;">
+        <h2 id="wss"style="display:none;font-family: 'Play', sans-serif;position: absolute;top: 400px;width: 1000px;left: 260px;text-align: center;">Ваше устройство успешно проверено на совместимость!</h2>
+        <button id="play_1"style="display:none;width: 250px;position: absolute;left: 650px;top: 550px;">Играть</button>
+    </div>
+    <a href="C:/Users/Asus/Desktop/Kupol/demo/index.html" id="play_button"style="text-decoration: none;color: white;display:none;justify-content: center; align-items: center;top: 350px;left: 615px;height: 75px;position:absolute;width: 300px;background: rgba(255, 87, 34, 0.5);border: rgb(216,37,46) 3px solid;font-family: 'Kelly Slab', cursive;">Играть</a>
+</body>
+<script src="file.js"></script>
+</html>
